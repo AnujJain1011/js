@@ -1,38 +1,19 @@
-// singleton
-// Object.create
+//literal , constructor
+//if object is created using constructors then it is singleton,means only one copy of that object is available but in case of literals multiple instance of objects can be their
 
-// object literals
-
-const mySym = Symbol("key1")
-
-
-const JsUser = {
-    name: "Hitesh",
-    "full name": "Hitesh Choudhary",
-    [mySym]: "mykey1",
-    age: 18,
-    location: "Jaipur",
-    email: "hitesh@google.com",
-    isLoggedIn: false,
-    lastLoginDays: ["Monday", "Saturday"]
+const mySym = Symbol("key1");//symbol : used for unique values
+const mySym2 = Symbol("key2");
+const jsUser = {
+    name:"ayush",
+    "full name":"ayush kumar",
+    age:21,
+    [mySym]:"myKey1"
 }
+console.log(jsUser); //dot notation
+console.log(jsUser["full name"]); //square notation
+// console.log(typeof jsUser.mySym);
 
-// console.log(JsUser.email)
-// console.log(JsUser["email"])
-// console.log(JsUser["full name"])
-// console.log(JsUser[mySym])
+Object.freeze(jsUser);//freezez the object ,value can not be changed
 
-JsUser.email = "hitesh@chatgpt.com"
-// Object.freeze(JsUser)
-JsUser.email = "hitesh@microsoft.com"
-// console.log(JsUser);
-
-JsUser.greeting = function(){
-    console.log("Hello JS user");
-}
-JsUser.greetingTwo = function(){
-    console.log(`Hello JS user, ${this.name}`);
-}
-
-console.log(JsUser.greeting());
-console.log(JsUser.greetingTwo());
+jsUser.age = 22;
+// console.log(jsUser);
