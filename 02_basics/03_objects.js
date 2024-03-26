@@ -17,3 +17,4 @@ Object.freeze(jsUser);//freezez the object ,value can not be changed
 
 jsUser.age = 22;
 // console.log(jsUser);
+

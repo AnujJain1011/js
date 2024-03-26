@@ -37,3 +37,11 @@ console.log("B ", myArr);
 const myn2 = myArr.splice(1, 3)
 console.log("C ", myArr);
 console.log(myn2);
+
+// const myArr = [1,2,3];
+// const myAnotherArr = [4,5,6];
+
+// different methods of merging two arrays
+// const newArr = myArr.concat(myAnotherArr);  //1st
+// const newArr = [...myArr,...myAnotherArr]; // 2nd spread operator
+// console.log(newArr);
