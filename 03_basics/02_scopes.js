@@ -11,4 +11,16 @@ var c = 30; //function scoped
 
 // console.log(a);
 // console.log(b);
-console.log(c);
+// console.log(c);
+
+console.log(addOne(1));
+//function declaration
+function addOne(num){
+    return num+1;
+}
+
+console.log(addTwo(1));
+//function expression 
+const addTwo = function(num){
+    return num+2;
+}
