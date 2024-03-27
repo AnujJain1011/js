@@ -1,58 +1,14 @@
-//var c = 300
-let a = 300
-if (true) {
-    let a = 10
-    const b = 20
-    // console.log("INNER: ", a);
-    
+// var is function scoped 
+// let and const are block scoped
+// {} //a block like function block or conditional block
+
+var c = 30; //function scoped
+{
+    let a = 1;
+    const b =2;
+    var c = 3;//getting value of c updated 
 }
-
-
 
 // console.log(a);
 // console.log(b);
-// console.log(c);
-
-
-function one(){
-    const username = "hitesh"
-
-    function two(){
-        const website = "youtube"
-        console.log(username);
-    }
-    // console.log(website);
-
-     two()
-
-}
-
-// one()
-
-if (true) {
-    const username = "hitesh"
-    if (username === "hitesh") {
-        const website = " youtube"
-        // console.log(username + website);
-    }
-    // console.log(website);
-}
-
-// console.log(username);
-
-
-// ++++++++++++++++++ interesting ++++++++++++++++++
-
-
-console.log(addone(5))
-
-function addone(num){
-    return num + 1
-}
-
-
-
-addTwo(5)
-const addTwo = function(num){
-    return num + 2
-}
+console.log(c);
