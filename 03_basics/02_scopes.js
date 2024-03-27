@@ -24,3 +24,5 @@ console.log(addTwo(1));
 const addTwo = function(num){
     return num+2;
 }
+
+

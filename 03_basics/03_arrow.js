@@ -1,54 +1,38 @@
 const user = {
-    username: "hitesh",
-    price: 999,
-
-    welcomeMessage: function() {
-        console.log(`${this.username} , welcome to website`);
+    username:"Ayush",
+    price:999,
+    greetingFunc:function(){
+        console.log(`Hello ${this.username} ,Welcome to Website`);
         console.log(this);
     }
-
 }
+//this refers to the current context of object
+// user.greetingFunc();
+// user.username = "hitesh";
 
-// user.welcomeMessage()
-// user.username = "sam"
-// user.welcomeMessage()
-
+// this.greetingFunc(); //here this represents the global object which is empty in node js
 // console.log(this);
 
 // function chai(){
-//     let username = "hitesh"
-//     console.log(this.username);
+//     const flavour = "chocolaty";
+//     console.log(this.flavour);
+// }
+// chai();//undefined : this doesn't work with the functions
+
+
+// const addTwo = function(num1,num2){ //normal function
+//     return num1+num2;
 // }
 
-// chai()
-
-// const chai = function () {
-//     let username = "hitesh"
-//     console.log(this.username);
+// const addTwo = (num1,num2) => { //arrow function
+//     return num1+num2;
 // }
+//if {} then return is neccessary
 
-const chai =  () => {
-    let username = "hitesh"
-    console.log(this);
-}
+// ()=>{}    //arrow function
 
+// const addTwo = (num1,num2) => (num1+num2);
 
-// chai()
+const addTwo = (num1,num2) => ({username:"Ayush"});//with object () are required
 
-// const addTwo = (num1, num2) => {
-//     return num1 + num2
-// }
-
-// const addTwo = (num1, num2) =>  num1 + num2
-
-// const addTwo = (num1, num2) => ( num1 + num2 )
-
-const addTwo = (num1, num2) => ({username: "hitesh"})
-
-
-console.log(addTwo(3, 4))
-
-
-// const myArray = [2, 5, 3, 7, 8]
-
-// myArray.forEach()
+console.log(addTwo());
