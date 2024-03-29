@@ -1,12 +1,11 @@
-// Immediately Invoked Function Expressions (IIFE)
+//Immediately invoked function expression
+//prevents the function from getting polluted by global variables
 
+(function chai(name){ // function with name : named iife
+    console.log("DB Connected to "+name);
+})("hitesh");
 
-(function chai(){
-    // named IIFE
-    console.log(`DB CONNECTED`);
-})();
-
-( (name) => {
-    console.log(`DB CONNECTED TWO ${name}`);
-} )('hitesh')
+( (name) => { // unnamed IIFE
+    console.log(`DB Connected Two by ${name}`);
+})("ayush")
 
