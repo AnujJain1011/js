@@ -32,6 +32,30 @@ const games = {
     'game2' : "Roadrash"
 };
 // console.log(games);
-for (const [game] of games) {
-    console.log(game);
+// for (const [game] of games) {  //will give error
+    // console.log(game);
+// }
+
+for (const key in games) {
+    // console.log(`${key} is ${games[key]}`);
 }
+
+// array of objects 
+const myCoding = [
+    {
+        languageName : "Javascript",
+        languageFileName : "js"
+    },
+    {
+        languageName : "java",
+        languageFileName : "java"
+    },
+    {
+        languageName : "python",
+        languageFileName : "py"
+    },
+]
+//using forEach
+myCoding.forEach((item)=>{
+    console.log(item.languageName);
+})

@@ -1,39 +1,20 @@
-const coding = ["js", "ruby", "java", "python", "cpp"]
+const coding = ["javaScript","ruby","cpp","java","swift"]
 
-// coding.forEach( function (val){
-//     console.log(val);
-// } )
+// coding.forEach(function (item) {
+//     console.log(item);
+// })
 
 // coding.forEach( (item) => {
 //     console.log(item);
-// } )
+// })
 
-// function printMe(item){
-//     console.log(item);
-// }
+coding.forEach((val,index,arr)=>{  //callback function in forEach can take up to three arguements
+    console.log(val,index,arr);
+})
 
-// coding.forEach(printMe)
+function printMe(item){
+    // console.log(item);
+}
 
-// coding.forEach( (item, index, arr)=> {
-//     console.log(item, index, arr);
-// } )
-
-const myCoding = [
-    {
-        languageName: "javascript",
-        languageFileName: "js"
-    },
-    {
-        languageName: "java",
-        languageFileName: "java"
-    },
-    {
-        languageName: "python",
-        languageFileName: "py"
-    },
-]
-
-myCoding.forEach( (item) => {
-    
-    console.log(item.languageName);
-} )
+// coding.forEach(printMe())//execution will give nothing
+// coding.forEach(printMe) // refrence dena hai
