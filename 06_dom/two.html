@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM | Chai aur code</title>
+    <title>Dom</title>
+    <style>
+        body{
+            background-color: #313131;
+            color: #fff;
+        }
+    </style>
 </head>
-<body style="background-color: #212121; color: #fff;">
+<body>
     <div class="parent">
-        <!-- this is a comment -->
         <div class="day">Monday</div>
         <div class="day">Tuesday</div>
         <div class="day">Wednesday</div>
@@ -16,24 +20,18 @@
     </div>
 </body>
 <script>
-    const parent = document.querySelector('.parent')
-    // console.log(parent);
-    // console.log(parent.children);
-    // console.log(parent.children[1].innerHTML);
+    const parentElement = document.querySelector('.parent')
+    // console.log(parentElement.children);
+    parentElement.children[1].style.color = "orange"
+    // console.log(parentElement.firstElementChild);
+    // console.log(parentElement.lastElementChild);
 
-    // for (let i = 0; i < parent.children.length; i++) {
-    //      console.log(parent.children[i].innerHTML);
-        
-    // }
-    parent.children[1].style.color = "orange"
-    // console.log(parent.firstElementChild);
-    // console.log(parent.lastElementChild);
+    //--- query selector is expensive operation because it travels through complete document ---
+    
+    const dayOne = document.querySelector('.day');
+    // console.log(dayOne.parentElement)
+    // console.log(dayOne.nextElementSibling)
 
-    const dayOne = document.querySelector('.day')
-    // console.log(dayOne);
-    // console.log(dayOne.parentElement);
-    // console.log(dayOne.nextElementSibling);
-
-    console.log("NODES: ", parent.childNodes);
+    console.log("Nodes :",parentElement.childNodes);
 </script>
 </html>
