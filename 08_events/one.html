@@ -12,52 +12,72 @@
             <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li> 
+            <!-- adding onclick in the html itself is not a good way for scaling -->
             <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
         </ul>
    </div>
 </body>
 <script>
-    // document.getElementById('owl').onclick = function(){
-    //     alert("owl clicked")
-    // }
+    // document.getElementById('owl').onclick = function (){
+    //     alert("Owl clicked")
+    // }//using onclick property does not give us all the features 
 
-     // attachEvent()
-    // jQuery - on
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert("owl clicked again")
+    // },false) //using event listener provides us all the features
 
-    // type, timestamp, defaultPrevented
-    // target, toElement, srcElement, currentTarget,
-    // clientX, clientY, screenX, screenY
-    // altkey, ctrlkey, shiftkey, keyCode
-
-    // document.getElementById('images').addEventListener('click', function(e){
+    //----
+    // document.getElementById('images').addEventListener('click',function(e){
     //     console.log("clicked inside the ul");
-    // }, false)
-
-    // document.getElementById('owl').addEventListener('click', function(e){
-    //     console.log("owl clicked");
-    //     e.stopPropagation()
-    // }, false)
-    
-    // document.getElementById('google').addEventListener('click',function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation()
-    //     console.log("google clicked");
-    // }, false)
-   
-    
-    document.querySelector('#images').addEventListener('click', function(e){
-        console.log(e.target.tagName);
-        if (e.target.tagName === 'IMG') {
-            console.log(e.target.id);
-            let removeIt = e.target.parentNode
-            removeIt.remove()
-        }
-    
+    // },false)
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //         console.log("clicked owl");
+    //         e.stopPropagation();//will stop the bubbling of event
+    //     },false)
+        //  Event bubbling(3rd parameter in addEventListener = false)
+        //  Now when owl is clicked then:1.clicked owl (local event)
+        //                               2.clicked inside the ul(global event)
         
-    })
-    
-    //removeIt.parentNode.removeChild(removeIt)
+        //----
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log("clicked inside the ul");
+        // },true)
+        // document.getElementById('owl').addEventListener('click',function(e){
+        //     console.log("owl clicked");
+        // },true)
+        
+        // Event capturing(3rd parameter in addEventListener = true)
+        // Now when owl is clicked then:1.clicked inside the ul(global event)
+        //                              2.clicked owl (local event)
+
+     //attachEvent()
+     //jQuery - .On
+
+     document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();//prevents the browser from opening the link
+        e.stopImmediatePropagation()
+        console.log('google clicked');
+     },false)
+     
+     // ---- images will be disappeared when we click on them ----
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e.target)
+        
+
+        // ----3 ways to remove e.target----
+        // const toRemove = e.target.parentNode
+        // console.log(toRemove.tagName);
+        // toRemove.parentNode.removeChild(toRemove);
+        
+        const toRemove = e.target;
+        console.log(toRemove.tagName);
+        if(toRemove.tagName === 'IMG')
+        toRemove.parentNode.remove()
+
+        // e.target.style.visibility = 'hidden'
+    },false)
+
 </script>
 </html>
