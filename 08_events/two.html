@@ -6,22 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Chai aur code</h1>
+    <h1>chai aur code</h1>
     <button id="stop">Stop</button>
 </body>
 <script>
-    const sayHitesh = function(){
-        console.log("Hitesh");
-    }
-    const changeText = function(){
-        document.querySelector('h1').innerHTML = "best JS series"
-    }
+    // const sayHitesh = function(){
+    //   console.log("Hitesh");   
+    // }
+    // setTimeout(sayHitesh,2000) //setTimeout(eventhandler,timeout) 2000 miliseconds
 
-    const changeMe = setTimeout(changeText, 2000)
+    const changeText = setTimeout(function(){
+        document.querySelector('h1').innerHTML = 'Best js series'
+    },2000)  //Best js series will replace content in h1 after 2 seconds
 
-    document.querySelector('#stop').addEventListener('click', function(){
-        clearTimeout(changeMe)
-        console.log("STOPPED")
-    })
+    // setTimeout(function(){
+    //     alert('Save Password')
+    // },2000)
+
+    document.getElementById('stop').addEventListener('click',function(){
+        clearTimeout(changeText);
+        console.log('stopped');
+    },false) // the text will not change if we click stop button
 </script>
 </html>
