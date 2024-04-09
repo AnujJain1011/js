@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Api rquest</title>
 </head>
-<body style="background-color: #212121;">
-    0	UNSENT	Client has been created. open() not called yet.
-1	OPENED	open() has been called.
-2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
-3	LOADING	Downloading; responseText holds partial data.
-4	DONE	The operation is complete.
-</body>
-<script>
-    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', requestUrl)
-    xhr.onreadystatechange = function(){
-        console.log(xhr.readyState);
-        if (xhr.readyState === 4) {
-            const data = JSON.parse(this.responseText)
-            console.log(typeof data);
-            console.log(data.followers);
+<body>
+    <h1>Api Request with XMLHttpRequest</h1>
+    <script>
+        const xhr = new XMLHttpRequest()
+        const requestUrl = "https://api.github.com/users/hiteshchoudhary"
+        console.log(xhr.readyState) // state 0
+        xhr.onreadystatechange = function(){
+            // console.log(xhr.readyState)
+            if(xhr.readyState === 4)
+            {
+                const data = this.responseText;//url response comes in string type
+                // const data = JSON.parse(this.responseText);//url response comes in object type
+                // console.log(data); // response text of current context
+                console.log(data);
+            }
+        } // will execute the function when the state changes
+        xhr.open('get', requestUrl) 
+        xhr.send() // state 1
+        console.log("Here..");
+
+        const profile = {
+            photoUrl : "https://avatars.githubusercontent.com/u/11613311?v=4",
+            followers : 19306 
         }
-    }
-    xhr.send();
-</script>
+    </script>
+
+</body>
 </html>
