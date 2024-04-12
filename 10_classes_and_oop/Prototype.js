@@ -1,7 +1,7 @@
-// let myName = "hitesh     "
+let myName = "hitesh     "
 // let mychannel = "chai     "
 
-// console.log(myName.trueLength);
+// console.log(myName.trim().length);
 
 
 let myHeros = ["thor", "spiderman"]
@@ -16,52 +16,50 @@ let heroPower = {
     }
 }
 
-Object.prototype.hitesh = function(){
-    console.log(`hitesh is present in all objects`);
+Object.prototype.hitesh = function(){ // object prototype
+    console.log('Hitesh is present everywhere');
 }
 
-Array.prototype.heyHitesh = function(){
-    console.log(`Hitesh says hello`);
+Array.prototype.HeyHitesh = function(){
+    console.log('hitesh says hello');
 }
+// heroPower.hitesh()  //object
+// myHeros.hitesh() //array
 
-// heroPower.hitesh()
-// myHeros.hitesh()
-// myHeros.heyHitesh()
-// heroPower.heyHitesh()
+// heroPower.HeyHitesh() // because prototype of object can be used by all but prototype of arrays can not be used by objects
+// myHeros.HeyHitesh()
 
-// inheritance
+///-- inheritance---(prototypal inheritance)
+// every object is an instance in itself
 
-const User = {
-    name: "chai",
-    email: "chai@google.com"
+const  User = {
+    username:"Ayush K"
 }
-
 const Teacher = {
-    makeVideo: true
+makeVideo:true
 }
-
-const TeachingSupport = {
-    isAvailable: false
+const TeachingSupport= {
+    isAvailable : true
 }
-
 const TASupport = {
-    makeAssignment: 'JS assignment',
-    fullTime: true,
-    __proto__: TeachingSupport
+    makeAssignment : "JS Assignment",
+    fullTime : true,
+    __proto__:TeachingSupport
 }
 
-Teacher.__proto__ = User
+// console.log(TASupport.isAvailable) // accessible hai
 
-// modern syntax
-Object.setPrototypeOf(TeachingSupport, Teacher)
+Teacher.__proto__ = User // all properties and methods of User will be accessible by Teacher
+// console.log(Teacher.username); 
 
-let anotherUsername = "ChaiAurCode     "
+Object.setPrototypeOf(TeachingSupport,Teacher) //giving  all properties of Teacher to TeachingSuppport
+// console.log(TeachingSupport.makeVideo);
 
+const anotherName = " chaiaurcode "
 String.prototype.trueLength = function(){
-    console.log(`${this}`);
-    console.log(`True length is: ${this.trim().length}`);
+    console.log(this);  // this matlab jis ko reference kar raha hai
+    console.log(this.trim().length);
 }
 
-anotherUsername.trueLength()
-"hitesh".trueLength()
-"iceTea".trueLength()
+anotherName.trueLength()//jis ne call kiya whi this hain.
+"Hitesh".trueLength()
