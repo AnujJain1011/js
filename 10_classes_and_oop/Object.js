@@ -15,14 +15,27 @@ createUser.prototype.increment = function(){
     this.price++;
 }
 createUser.prototype.printMe = function(){
-    console.log(`Price is ${this.price}`);
+    // console.log(`Price is ${this.price}`);
 }
 
 // console.log(createUser.prototype)
 
-const chai = new createUser('chai',25)// object creation
+const chai = createUser('chai',25)// object creation
 const tea = new createUser('tea',250)
 
 // console.log(chai);
 // console.log(tea);
 // console.log(tea.increment())
+
+
+//call
+// function callme(){
+//     console.log('callme')
+//     console.log(this)
+// }             
+// function dad(){
+//     console.log('dad'); 
+//     console.log(this)
+//     callme();
+// }
+// dad()
