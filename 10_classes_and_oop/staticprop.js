@@ -1,26 +1,27 @@
-class User {
+// static properties
+
+class User{
     constructor(username){
         this.username = username
     }
 
     logMe(){
-        console.log(`Username: ${this.username}`);
+        console.log(`Username is ${this.username}`);
     }
-
     static createId(){
-        return `123`
+        return Math.floor(Math.random()*10);
     }
 }
 
-const hitesh = new User("hitesh")
-// console.log(hitesh.createId())
+const chai = new User('chai')
+// console.log(chai.createId());
 
-class Teacher extends User {
-    constructor(username, email){
-        super(username)
+class Teacher extends User{
+    constructor(username,email)
+    {
+        super(username)  //call,this,passing all data to another context
         this.email = email
     }
 }
-
-const iphone = new Teacher("iphone", "i@phone.com")
-console.log(iphone.createId());
+const iPhone = new Teacher('iPhone','iphone@gmail.com')
+iPhone.logMe()
