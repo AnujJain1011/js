@@ -1,34 +1,37 @@
-const descripter = Object.getOwnPropertyDescriptor(Math, "PI")
-
-// console.log(descripter);
-
-// console.log(Math.PI);
+console.log(Math.PI);
 // Math.PI = 5
-// console.log(Math.PI);
+// console.log(Math.PI) // not changed and error also not 
+const descriptor = Object.getOwnPropertyDescriptor(Math,"PI")
 
-const chai = {
-    name: 'ginger chai',
-    price: 250,
-    isAvailable: true,
+// console.log(descriptor);
 
-    orderChai: function(){
-        console.log("chai nhi bni");
+const mynewObject = {
+    username: "Chai",
+    email: "chai@gmail.com",
+
+    createNewObject : function(){
+        console.log('chai nhi bn pai');
     }
 }
+console.log(Object.getOwnPropertyDescriptor(mynewObject,"username"));
 
-console.log(Object.getOwnPropertyDescriptor(chai, "name"));
-
-Object.defineProperty(chai, 'name', {
-    //writable: false,
-    enumerable: true,
-    
+//we can change the characteristics of the property of the object
+Object.defineProperty(mynewObject,"username",{
+    // writable:false,
+    enumerable:false
 })
 
-console.log(Object.getOwnPropertyDescriptor(chai, "name"));
+//as soon as we put enumerable to false the selected property could not be returned through loops
 
-for (let [key, value] of Object.entries(chai)) {
-    if (typeof value !== 'function') {
-        
-        console.log(`${key} : ${value}`);
-    }
+// mynewObject.username = "masala chai"
+// console.log(Object.getOwnPropertyDescriptor(mynewObject,"username"));
+
+// for (let [key,value] of mynewObject) {
+//     console.log(iterator);
+// }gives error that mynewObject is not iterable
+
+for (let [key,value] of Object.entries(mynewObject)) {
+    if(typeof value !== "function")
+    console.log(`${key} : ${value}`);
 }
+ 
